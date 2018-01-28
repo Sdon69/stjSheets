@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Event Writer</title>
+
+
+</head>
+<script>
+function f()
+{
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+
+  var yyyy = today.getFullYear();
+  if(dd<10){
+  dd='0'+dd;
+  }
+  if(mm<10){
+  mm='0'+mm;
+  }
+  var today = dd+'/'+mm+'/'+yyyy;
+
+
+var title = document.event.eventTitle.value;
+
+var desc = document.event.eventDesc.value;
+
+var entryFees = document.event.entryFees.value;
+
+var pass_check = document.event.pass_check.value;
+
+var date_of_event =   document.event.date_of_event.value;
+var dateOfEventArray = date_of_event.split("-");
+var dateOfEventYear = dateOfEventArray[0];
+var dateOfEventMonth = dateOfEventArray[1];
+var dateOfEventDay = dateOfEventArray[2];
+var dateOfEventString = `${dateOfEventDay}/${dateOfEventMonth}/${dateOfEventYear} `;
+
+var lastDateOfRegistration = document.event.lastDateOfRegistration.value;
+var lastDateOfRegistrationArray = lastDateOfRegistration.split("-");
+var lastDateOfRegistrationYear = lastDateOfRegistrationArray[0];
+var lastDateOfRegistrationMonth = lastDateOfRegistrationArray[1];
+var lastDateOfRegistrationDay = lastDateOfRegistrationArray[2];
+var lastDateOfRegistrationString = `${lastDateOfRegistrationDay}/${lastDateOfRegistrationMonth}/${lastDateOfRegistrationYear} `;
+var isGenreChecked = false;
+var isDateOfEventPast = false;
+var isLastDateofRegistrationPast = false;
+// var genres =
+
+
+
+if(document.event.genres0.checked)
+{
+var isGenreChecked = true;
+}
+else if(document.event.genres1.checked)
+{
+var isGenreChecked = true;
+}
+else if(document.event.genres2.checked)
+{
+var isGenreChecked = true;
+}
+else if(document.event.genres3.checked)
+{
+var isGenreChecked = true;
+}
+else if(document.event.genres4.checked)
+{
+var isGenreChecked = true;
+}
+else if(document.event.genres5.checked)
+{
+var isGenreChecked = true;
+}
+else if(document.event.genres6.checked)
+{
+var isGenreChecked = true;
+}
+
+if(dateOfEventYear<yyyy)
+{
+  isDateOfEventPast = true;
+}
+if (dateOfEventMonth < mm) {
+  if(dateOfEventYear<yyyy)
+  {
+    isDateOfEventPast = true;
+  }
+}
+
+
+if (dateOfEventDay < dd) {
+ if (dateOfEventMonth < mm) {
+     if(dateOfEventYear < yyyy){
+isDateOfEventPast = true;
+
+      }
+    }
+  }
+
+  if(lastDateOfRegistrationYear < yyyy)
+  {
+isLastDateofRegistrationPast = true;
+  }
+
+  if(lastDateOfRegistrationMonth < mm)
+  {
+    if(lastDateOfRegistrationYear < yyyy)
+    {
+  isLastDateofRegistrationPast = true;
+    }
+  }
+
+
+if (lastDateOfRegistrationDay < dd)
+{
+ if(lastDateOfRegistrationMonth < mm)
+ {
+   if(lastDateOfRegistrationYear < yyyy)
+   {
+isLastDateofRegistrationPast = true;
+   }
+ }
+}
+
+
+if(title.length < 1)
+{
+  alert('Enter the Event Title.');
+}
+else if (desc.length < 1) {
+    alert('Enter the Event Description.');
+}
+else if (entryFees.length < 1) {
+    alert('Enter the Entry Fees.');
+}
+else if (pass_check.length < 1) {
+    alert('Confirm the password.');
+}
+else if(date_of_event.length < 2)
+{
+
+alert('Choose the Date of the Event.');
+}
+else if(isDateOfEventPast)
+{
+alert('The date of event can not be in past');
+}
+else if(lastDateOfRegistration.length < 2)
+{
+
+alert('Choose the Last Date of Registration.');
+}
+else if(isLastDateofRegistrationPast)
+{
+alert('The last day of Registration can not be in past');
+}
+
+
+
+else if (!isGenreChecked) {
+  alert('Choose Atleast one Genre')
+}
+
+
+
+
+
+
+}
+
+</script>
+<body>
+
+
+
+
+
+    <form method="post" action="/eventgenres" name='event'>
+
+<input type='text' placeholder="Event Title" name='eventTitle'/><br>
+<input type='text' placeholder="Event Description" name='eventDesc'><br>
+<input type='number' placeholder="Entry Fees" name='entryFees'><br>
+<input type='password' placeholder="Confirm Password" name='pass_check'><br>
+Date of Event:
+<input type="date" name='date_of_event'><br>
+Last Date of Registration:
+<input type="date" name='lastDateOfRegistration'><br>
+Genres:<br>
+<input type="checkbox" name="genres0" value="Technology">Technology<br>
+<input type="checkbox" name="genres1" value="Social Gathering">Social Gathering<br>
+<input type="checkbox" name="genres2" value="Debate">Debate<br>
+<input type="checkbox" name="genres3" value="Social Awareness">Social Awareness<br>
+<input type="checkbox" name="genres4" value="Convention">Convention<br>
+<input type="checkbox" name="genres5" value="Sports">Sports<br>
+<input type="checkbox" name="genres6" value="Other">Other<br>
+
+
+
+        <input type="submit" value="Submit" onclick="f()">
+    </form>
+    <br>
+
+
+
+
+</body>
+
+</html>

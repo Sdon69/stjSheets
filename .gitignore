@@ -1,0 +1,6 @@
+node_modules/
+readingCheck.js
+server.js
+server.log
+test.js
+writingCheck.js

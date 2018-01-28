@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Annoncement Writer</title>
+
+
+</head>
+<script>
+function f()
+{
+
+
+var title = document.event.eventTitle.value;
+
+var desc = document.event.eventDesc.value;
+
+
+
+var pass_check = document.event.pass_check.value;
+
+
+
+
+
+if(document.event.semester0.checked)
+{
+var isSemesterChecked = true;
+}
+else if(document.event.semester1.checked)
+{
+var isSemesterChecked = true;
+}
+else if(document.event.semester2.checked)
+{
+var isSemesterChecked = true;
+}
+else if(document.event.semester3.checked)
+{
+var isSemesterChecked = true;
+}
+else if(document.event.semester4.checked)
+{
+var isSemesterChecked = true;
+}
+else if(document.event.semester5.checked)
+{
+var isSemesterChecked = true;
+}
+
+
+
+
+if(document.event.department0.checked)
+{
+var isDepartmentChecked = true;
+}
+else if(document.event.department1.checked)
+{
+var isDepartmentChecked = true;
+}
+else if(document.event.department2.checked)
+{
+var isDepartmentChecked = true;
+}
+else if(document.event.department3.checked)
+{
+var isDepartmentChecked = true;
+}
+else if(document.event.department4.checked)
+{
+var isDepartmentChecked = true;
+}
+else if(document.event.department5.checked)
+{
+var isDepartmentChecked = true;
+}
+
+
+
+
+
+
+
+
+
+
+
+if(title.length < 1)
+{
+  alert('Enter the Event Title.');
+}
+else if (desc.length < 1) {
+    alert('Enter the Event Description.');
+}
+else if (pass_check.length < 1) {
+    alert('Confirm the password.');
+}
+
+
+
+
+
+
+else if (!isDepartmentChecked) {
+  alert('Choose Atleast one Department')
+}
+
+else if (!isSemesterChecked) {
+  alert('Choose Atleast one Semester')
+}
+
+
+
+
+
+}
+
+</script>
+<body>
+
+
+
+
+
+    <form method="post" action="/announcementWriteCheck" name='event'>
+
+<input type='text' placeholder="Event Title" name='eventTitle'/><br>
+<input type='text' placeholder="Event Description" name='eventDesc'><br>
+
+<input type='password' placeholder="Confirm Password" name='pass_check'><br>
+<br>
+Department(s) Concerned:<br>
+<input type="checkbox" name="department0" value="Art">Art<br>
+<input type="checkbox" name="department1" value="Commerce">Commerce<br>
+<input type="checkbox" name="department2" value="Management">Management<br>
+<input type="checkbox" name="department3" value="Education">Education<br>
+<input type="checkbox" name="department4" value="Science">Science<br>
+<input type="checkbox" name="department5" value="Other">Other<br>
+
+<br>
+
+
+Semesters(s) Concerned:<br>
+<input type="checkbox" name="semester0" value="First Semester">First Semester<br>
+<input type="checkbox" name="semester1" value="Second Semester">Second Semester<br>
+<input type="checkbox" name="semester2" value="Third Semester">Third Semester<br>
+<input type="checkbox" name="semester3" value="Fourth Semester">Fourth Semester<br>
+<input type="checkbox" name="semester4" value="Fifth Semester">Fifth Semester<br>
+<input type="checkbox" name="semester5" value="Sixth and Above Semesters">Sixth and Above Semesters<br>
+
+<br>
+
+        <input type="submit" value="Submit" onclick="f()">
+    </form>
+    <br>
+
+
+
+
+</body>
+
+</html>
